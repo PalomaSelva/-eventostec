@@ -1,4 +1,4 @@
-package dtos;
+package com.paloma.event.microsservices.dtos;
 
 public record EmailRequestDTO(String to, String subject, String body) {
     // Nenhum construtor, getter ou setter são necessários,

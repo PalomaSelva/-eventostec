@@ -1,6 +1,6 @@
 package com.paloma.event.microsservices.services;
 
-import dtos.EmailRequestDTO;
+import com.paloma.event.microsservices.dtos.EmailRequestDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
