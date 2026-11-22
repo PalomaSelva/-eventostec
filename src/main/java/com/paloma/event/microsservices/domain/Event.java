@@ -1,5 +1,6 @@
 package com.paloma.event.microsservices.domain;
 
+import com.paloma.event.microsservices.dtos.EventRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,7 +17,15 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private int maxParticipants;
+    private int registeredParticipants;
     private String date;
     private String title;
     private String description;
+
+    public Event(EventRequestDTO eventRequest) {
+        this.maxParticipants = eventRequest.maxParticipants();
+        this.registeredParticipants = eventRequest.registeredParticipants();
+        this.date = eventRequest.date();
+        this.title = eventRequest.title();
+    }
 }
