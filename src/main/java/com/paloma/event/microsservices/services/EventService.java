@@ -10,6 +10,7 @@ import com.paloma.event.microsservices.repositories.EventRepository;
 import com.paloma.event.microsservices.repositories.SubscriptionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -39,6 +40,7 @@ public class EventService {
         return event.getRegisteredParticipants() >= event.getMaxParticipants();
     }
 
+    @Transactional
     public void registerParticipant(String eventId, String participantEmail) {
         Event event = eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new);
 
